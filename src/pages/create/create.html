@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Create a new content</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Title</ion-label>
+      <ion-input type="text" [(ngModel)]="item.title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Thumbnail</ion-label>
+      <ion-input type="text" [(ngModel)]="item.thumb"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>URL</ion-label>
+      <ion-input type="text" [(ngModel)]="item.url"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tags</ion-label>
+      <ion-input type="text" [(ngModel)]="item.tags"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Type</ion-label>
+      <ion-select [(ngModel)]="item.type">
+        <ion-option *ngFor="let t of types" [value]="t.value">{{ t.label }}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Description</ion-label>
+      <ion-textarea rows="3"  [(ngModel)]="item.desc"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Visible</ion-label>
+      <ion-checkbox [(ngModel)]="item.visible"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+  <button ion-button full type="submit" (click)="create()">CREATE</button>
+</ion-content>
