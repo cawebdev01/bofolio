@@ -23,4 +23,12 @@ export class HomePage {
   creator(){
     this.navCtrl.push(CreatePage)
   }
+  delete(id){
+    console.log("l'id "+id+" est supprimé!");
+    this.homeservice.contentdeleter(id)
+    this.navCtrl.push(HomePage)
+  }
+  update(id){
+    console.log("mise à jour de l'id "+ id)
+  }
 }

@@ -2,20 +2,14 @@
    header('Access-Control-Allow-Origin: *'); 
    
    // Define database connection parameters
-   /*$hn      = 'localhost';
-   $un      = 'root';
-   $pwd     = 'root';
-   $db      = 'arcamonecreations_prod';
+   $hn      = 'localhost';
+   $un      = 'clement';
+   $pwd     = 'CheriChou2503';
+   $db      = 'arcamonecreations';
    $cs      = 'utf8';
-   */
-  $hn      = 'localhost';
-  $un      = 'clement';
-  $pwd     = 'CheriChou2503';
-  $db      = 'arcamonecreations';
-  $cs      = 'utf8';
-  
+   
    // Set up the PDO parameters
-   $dsn  = "mysql:host=" . $hn . ";port=8889;dbname=" . $db . ";charset=" . $cs;
+   $dsn  = "mysql:host=" . $hn . ";port=3306;dbname=" . $db . ";charset=" . $cs;
    $opt  = array(
                         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,

@@ -1,13 +1,19 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { HomeServiceProvider } from '../../providers/home-service/home-service';
+import { HomePage } from '../home/home'
 
 @Component({
   selector: 'page-create',
   templateUrl: 'create.html',
 })
 export class CreatePage {
-  types; item ={title:'', thumb:'', url:'', tags:'', type:'', desc:'', visible:''} 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  types; visible: any; item ={title:'', thumb:'', url:'', tags:'', type:'', desc:'', visible: this.visible} 
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public homeService: HomeServiceProvider,
+  ) {
     this.types= [
       {"value": "Application", "label": "Application"},
       {"value":"Vidéo","label":"Vidéo"},
@@ -16,12 +22,14 @@ export class CreatePage {
     ]
   }
   create(){
-    /*if(this.item.visible == 'true'){
-      this.item.visible = '1'
+    if(this.item.visible === true){
+      this.item.visible = 1
     }
     else{
-      this.item.visible = '0'
-    }*/
+      this.item.visible = 0
+    }
     console.log(this.item)
+    this.homeService.contentposter(this.item)
+    this.navCtrl.pop()
   }
 }

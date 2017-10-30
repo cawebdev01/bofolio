@@ -7,13 +7,19 @@
 <ion-content padding>
   <ion-list>
     <ion-item *ngFor="let i of items">
-      <!--id : {{ i.id }} <br-->
-      {{ i.title }} /<!--br>
-      thumb : {{ i.thumbnail }} <br>
-      url: {{ i.url }} <br-->
-      {{ i.type }} <!--br>
-      visibility {{ i.visibility }} -->
-     </ion-item>
+      <ion-row>
+        <!--{{ i.id }} -->
+        <ion-col col-10>
+          {{ i.title }} / {{ i.type }}
+        </ion-col> 
+        <ion-col col-1 (click)="update(i.id)">
+          <ion-icon name="md-create"></ion-icon>
+        </ion-col>
+        <ion-col col-1>
+          <ion-icon name="md-trash" (click)="delete(i.id)"></ion-icon>   
+        </ion-col> 
+      </ion-row>
+     </ion-item> 
   </ion-list>
   <button ion-button (click)="creator()">New element</button>
 </ion-content>
